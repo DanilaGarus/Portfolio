@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7798403123695289288}
   - component: {fileID: 2285552636766408068}
   - component: {fileID: 2452061036325476046}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
         m_CallState: 2
   _mask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2112
   _tags:
   - Player
 --- !u!114 &7798403123695289288
@@ -127,9 +127,14 @@ GameObject:
   - component: {fileID: 4580250370382733824}
   - component: {fileID: 773490662653910694}
   - component: {fileID: 7293446678796581400}
-  m_Layer: 0
+  - component: {fileID: 6717904069622510449}
+  - component: {fileID: 2137736037431197389}
+  - component: {fileID: 6717904069622510451}
+  - component: {fileID: 6717904069622510455}
+  - component: {fileID: 580508105}
+  m_Layer: 12
   m_Name: Seashell
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,6 +241,140 @@ PolygonCollider2D:
       - {x: 0.5476551, y: -0.21102983}
       - {x: 0.47567272, y: -0.07794212}
       - {x: 0.31482697, y: 0.073419124}
+--- !u!95 &6717904069622510449
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220501730854982291}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22e225976e6cdde4886b91fcc300ccc3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2137736037431197389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220501730854982291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2f1eb7bf044c6ab8997fade45b85d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vision: {fileID: 6045716457256072440}
+  _meleeCooldown:
+    _value: 1
+  _meleeAttack: {fileID: 9053410708621027971}
+  _meleeCanAttack: {fileID: 2452061036325476046}
+  _rangeCooldown:
+    _value: 3
+  _rangeAttack: {fileID: 2533700762874718941}
+--- !u!114 &6717904069622510451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220501730854982291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edba5bdb06b80d643bd724ae57a2562f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _onDamageTake:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6717904069622510449}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hit
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onPoisionDamageTake:
+    m_PersistentCalls:
+      m_Calls: []
+  _poisionCollisionVelocity:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6717904069622510455}
+        m_TargetAssemblyTypeName: Components.GameObjectBased.ObjectDestroyComponent,
+          Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 580508105}
+        m_TargetAssemblyTypeName: Components.GameObjectBased.SpawnComponent, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onCut:
+    m_PersistentCalls:
+      m_Calls: []
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6717904069622510455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220501730854982291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d6d69b84a022340956c0fd88e07979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ObjectToDestroy: {fileID: 5220501730854982291}
+--- !u!114 &580508105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220501730854982291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85799c0373347a44f813d2d0047e9a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 4580250370382733824}
+  _prefab: {fileID: 3745767921673665801, guid: a77bb57ce1f2046428b5805fd54c0103, type: 3}
 --- !u!1 &8714400067044888933
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +387,7 @@ GameObject:
   - component: {fileID: 4157945939472240999}
   - component: {fileID: 6045716457256072440}
   - component: {fileID: 3567130523471548273}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +421,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.2, y: 0.5}
+  m_Offset: {x: -1.6977844, y: 0.46401548}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -293,7 +432,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 2}
+  m_Size: {x: 4.004431, y: 2.071969}
   m_EdgeRadius: 0
 --- !u!114 &6045716457256072440
 MonoBehaviour:
@@ -355,7 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4252781579243519000}
   - component: {fileID: 2533700762874718941}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: PearlThrowPosition
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}

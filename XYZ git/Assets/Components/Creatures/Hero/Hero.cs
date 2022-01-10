@@ -1,9 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
 using Assets.Creatures;
 using Components.ColliderBased;
+using Components.GameObjectBased;
 using Components.Health;
 using Components.Model;
 using Components.Utils;
+using Components.World_Scripts;
 using UnityEngine;
 //using UnityEditor.Animations;
 
@@ -18,8 +21,14 @@ namespace Components.Creatures.Hero
         [SerializeField] private Vector3 _groundCheckPositionDelta;
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private bool _isArmed;
-        public float _swordCount;
+        private int _swordCount;
 
+        [Header("Burst Throw")] [SerializeField]
+        private Cooldown _burstCooldown;
+        [SerializeField] private int _burstParticles;
+        [SerializeField] private float _burstDelay;
+        private bool _burstThrow;
+        
         [Space] [Header("Other")] 
         [SerializeField] private Cooldown _throwCoolDown;
 
@@ -34,9 +43,7 @@ namespace Components.Creatures.Hero
         // AnimationContrller на RuntimeAnimatorController
         //или добавить #IF #UNITY;
         
-        [Space]
-        [Header("Particles")]
-        [SerializeField] private ParticleSystem _hitParticles;       
+       [SerializeField] private ProbabilityDropComponent _hitDrop;    
 
         private GameSession _session;
 
@@ -60,13 +67,13 @@ namespace Components.Creatures.Hero
         }  
 
         private void Start()
-        {    
+        {
             _session = FindObjectOfType<GameSession>();
-            
             _session.Save();
             
             var health = GetComponent<HealthComponent>();
             health.SetHealth(_session.Data._hp);
+
             UpdateHeroWeapon();
         }
 
@@ -146,11 +153,8 @@ namespace Components.Creatures.Hero
             var _numCoinsDispose = Mathf.Min(_session.Data._coins, 5);
             _session.Data._coins -= _numCoinsDispose;
 
-            var burst = _hitParticles.emission.GetBurst(0);
-            burst.count = _numCoinsDispose;
-            _hitParticles.emission.SetBurst(0, burst);
-            _hitParticles.gameObject.SetActive(true);
-            _hitParticles.Play();
+            _hitDrop.SetCount(_numCoinsDispose);
+            _hitDrop.CalculateDrop();
         }
 
         public void Interact()
@@ -166,32 +170,58 @@ namespace Components.Creatures.Hero
                 base.Attack();      
                 _attackCoolDown.Reset();
             }
-                  
         }
 
         public void OnDoThrow()
         {
-            _particles.Spawn("Throw");
+            if (_burstThrow)
+            {
+                var throwsCount = Mathf.Min(_burstParticles, _session.Data._swordCount- 1);
+                StartCoroutine(DoBurst(throwsCount));
+            }
+            else
+            {
+                BurstAndRemoveFromInventory();
+            }
+
+            _burstThrow = false;
         }
 
-        public void Throw()
+        private IEnumerator DoBurst(int throwsCount)
         {
-            if (_throwCoolDown.IsReady && _swordCount > 1)
+            for (int i = 0; i < throwsCount; i++)
             {
-                Animator.SetTrigger(ThrowKey);  
-                _throwCoolDown.Reset();
-                _swordCount--;
-            }
-            
-            if (_swordCount <= 1)
-            {
-                return;
+                BurstAndRemoveFromInventory();
+                yield return new WaitForSeconds(_burstDelay);
             }
         }
 
+
+        private void BurstAndRemoveFromInventory()
+        {
+            _particles.Spawn("Throw");
+            _session.Data._swordCount--;
+        }
+        
+        public void StartBurst()
+        {
+            _burstCooldown.Reset();
+        }
+
+        public void PerformBurst()
+        {
+            if (!_throwCoolDown.IsReady ||  _session.Data._swordCount <= 1) return;
+
+            if (_burstCooldown.IsReady) _burstThrow = true;
+            
+            Animator.SetTrigger(ThrowKey);  
+            _throwCoolDown.Reset();
+
+        }
+        
         public void AddSwords()
         {
-            _swordCount++;
+            _session.Data._swordCount++;
         }
 
         public void ArmHero()
@@ -217,8 +247,8 @@ namespace Components.Creatures.Hero
 
         private void UpdateHeroWeapon()
         {
-            Animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
-
+            Animator.runtimeAnimatorController = _session.Data._swordCount > 0 ? _armed : _disarmed;
+            
             //if (_session.Data.IsArmed)
             //{
             //    _animator.runtimeAnimatorController = _armed;

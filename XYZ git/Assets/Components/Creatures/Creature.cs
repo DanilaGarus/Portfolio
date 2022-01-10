@@ -17,8 +17,8 @@ namespace Assets.Creatures
         [Header("Chekers")]
         [SerializeField] protected LayerMask _groundlayer;
         [SerializeField] protected LayerMask _BarrelLayer;
-        [SerializeField] protected LayerCheck _GroundCheck;
-        [SerializeField] protected LayerCheck _BarrelCheck;
+        [SerializeField] protected ColliderCheck _GroundCheck;
+        [SerializeField] protected ColliderCheck _BarrelCheck;
         [SerializeField] private CheckCircleOverlap _attackRange;
         [SerializeField] protected SpawnListComponent _particles;
 

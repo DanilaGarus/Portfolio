@@ -62,6 +62,11 @@ namespace Components.World_Scripts
         {
 
         }
+
+        public void SetCount(int count)
+        {
+            _count = count;
+        }
     }
 }
 

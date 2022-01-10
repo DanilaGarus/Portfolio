@@ -3,19 +3,11 @@ using UnityEngine;
 
 namespace Components.Creatures.Weapon
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : BaseProjectile
     {
-        [SerializeField] private float _speed;
-        [SerializeField] private bool _invertX;
-        private Rigidbody2D _rigidbody;
-        private int _direction;
-        
-        private void Start()
+        protected override void Start()
         {
-            var mod = _invertX ? -1 : 1;
-            _direction = mod * transform.lossyScale.x > 0 ? 1 : -1;
-            _rigidbody = GetComponent<Rigidbody2D>();
-            
+            base.Start();
         }
 
         private void FixedUpdate()

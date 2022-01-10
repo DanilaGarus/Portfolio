@@ -15,13 +15,9 @@ namespace Components.Health
         [SerializeField] private UnityEvent _onCut;
         [SerializeField] private HealthChangeEvent _onChange;
         private Coroutine _routine;
-
-
+        
        private int dmg;
-
-
        
-
        public void ApplyDamage(int damageValue)
         {
             _health -= damageValue;
@@ -71,8 +67,6 @@ namespace Components.Health
                 dmg++;                
             }          
         }
-
-        
         
         internal void SetHealth(int health)
         {

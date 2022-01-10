@@ -51,9 +51,14 @@ namespace Components.Creatures.Hero
 
         public void OnThrow(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.started)
             {
-                _hero.Throw();
+                _hero.StartBurst();
+            }
+
+            if (context.canceled)
+            {
+                _hero.PerformBurst();
             }
         }
     }

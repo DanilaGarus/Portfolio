@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &302340222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302340223}
+  m_Layer: 12
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &302340223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302340222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1509110973}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1399144118
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +41,7 @@ GameObject:
   - component: {fileID: 1399144119}
   - component: {fileID: 1399144121}
   - component: {fileID: 1399144120}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Drop (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +125,7 @@ GameObject:
   - component: {fileID: 1477549550}
   - component: {fileID: 4268530828141164763}
   - component: {fileID: 7100931651539570841}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,6 +222,58 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &1509110972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1509110973}
+  - component: {fileID: 1509110974}
+  m_Layer: 12
+  m_Name: PatrolGroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1509110973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509110972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.439, y: -0.619, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 302340223}
+  m_Father: {fileID: 8677086549609781562}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1509110974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509110972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c5e1952e5149bb93dfa5ab48732f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Layer:
+    serializedVersion: 2
+    m_Bits: 8
+  _BarrelLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _isTouchingLayer: 0
+  _target: {fileID: 302340223}
 --- !u!1 &1628390057
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1628390058}
   - component: {fileID: 1628390059}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: DropSpawner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912609808}
   - component: {fileID: 1912609809}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: MeatSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 830390746769259313}
   - component: {fileID: 1323149498436875303}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Miss Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -340,7 +422,7 @@ GameObject:
   - component: {fileID: 1922072481938535452}
   - component: {fileID: 3828954062559241389}
   - component: {fileID: 3848430609425141731}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -454,7 +536,7 @@ GameObject:
   - component: {fileID: 8677086548250673444}
   - component: {fileID: 8677086548250673446}
   - component: {fileID: 8677086548250673447}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8677086548451513693}
   - component: {fileID: 8677086548451513692}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -565,7 +647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8677086548977766034}
   - component: {fileID: 8677086548977766045}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FootStepposition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -610,7 +692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8677086549582960983}
   - component: {fileID: 8677086549582960982}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: JumpPosition
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -666,7 +748,8 @@ GameObject:
   - component: {fileID: 3817095254596855503}
   - component: {fileID: 1760473994}
   - component: {fileID: 680891466}
-  m_Layer: 3
+  - component: {fileID: 960755924}
+  m_Layer: 12
   m_Name: Sharky
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -695,6 +778,7 @@ Transform:
   - {fileID: 1912609808}
   - {fileID: 1399144119}
   - {fileID: 1628390058}
+  - {fileID: 1509110973}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1070,6 +1154,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ObjectToDestroy: {fileID: 8677086549609781560}
+--- !u!114 &960755924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677086549609781560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8f6c7a858773940903c05591b3f012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundCheck: {fileID: 1509110974}
+  _creature: {fileID: 5312220374873928730}
+  _direction: 1
 --- !u!1 &9095291652892458270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4399469212817677313}
   - component: {fileID: 4034721860040589259}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ExclaminationSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

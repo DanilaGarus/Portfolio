@@ -4,8 +4,6 @@ using UnityEngine.Events;
 
 namespace Components.ColliderBased
 {
-
-
     public class EnterCollisionComponent : MonoBehaviour
     {
         [SerializeField] private string _tag;

@@ -7,18 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1832506806467969532, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1832506806467969532, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3649827383913604918, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: _numCoins
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7425463035131820576, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -63,41 +51,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425463035131820577, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2322180950842035098, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
-    - target: {fileID: 7425463035131820577, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7425463035131820586, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
       propertyPath: m_Name
       value: Silver Coin Particle
       objectReference: {fileID: 0}
-    - target: {fileID: 7425463035131820586, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: m_TagString
-      value: Coin1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7425463035131820589, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: _clips.Array.data[0]._sprites.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7425463035131820589, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: _clips.Array.data[0]._sprites.Array.data[0]
-      value: 
-      objectReference: {fileID: -2322180950842035098, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
-    - target: {fileID: 7425463035131820589, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: _clips.Array.data[0]._sprites.Array.data[1]
-      value: 
-      objectReference: {fileID: -4893972260818282012, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
-    - target: {fileID: 7425463035131820589, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: _clips.Array.data[0]._sprites.Array.data[2]
-      value: 
-      objectReference: {fileID: -6323751108524238166, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
-    - target: {fileID: 7425463035131820589, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
-      propertyPath: _clips.Array.data[0]._sprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 2722280177590742205, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}

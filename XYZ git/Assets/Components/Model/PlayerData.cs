@@ -10,6 +10,7 @@ namespace Components.Model
         public int _coins;
         public int _hp;
         public bool IsArmed;
+        public int _swordCount;
 
         public PlayerData Clone()
         {                  

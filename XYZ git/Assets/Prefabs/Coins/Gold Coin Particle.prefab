@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 3649827383913604918}
   - component: {fileID: 1832506806467969532}
   - component: {fileID: 5978096895179089029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gold Coin Particle
-  m_TagString: Coin10
+  m_TagString: Coin1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1936622969
   m_SortingLayer: 2
   m_SortingOrder: 4
-  m_Sprite: {fileID: 6582046967323461550, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
+  m_Sprite: {fileID: -2322180950842035098, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,10 +133,10 @@ MonoBehaviour:
   _clips:
   - _name: IDLE
     _sprites:
-    - {fileID: 6582046967323461550, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
-    - {fileID: 1942777921290549423, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
-    - {fileID: 8793606821965667882, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
-    - {fileID: 3444832735345940322, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
+    - {fileID: -2322180950842035098, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
+    - {fileID: -4893972260818282012, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
+    - {fileID: -6323751108524238166, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
+    - {fileID: 2722280177590742205, guid: 222ecf52d80061d40a7db7f3d6d12d9f, type: 3}
     _loop: 1
     _allowNextClip: 0
     _onComplete:
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e16f16fdf49704090326126444ed19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numCoins: 10
+  _numCoins: 1
 --- !u!50 &1832506806467969532
 Rigidbody2D:
   serializedVersion: 4

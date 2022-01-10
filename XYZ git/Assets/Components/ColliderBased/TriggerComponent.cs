@@ -23,13 +23,10 @@ namespace Components.ColliderBased
             if (!other.gameObject.IsInLayer(_layer)) return;
             if (!string.IsNullOrEmpty(_tag) && !other.gameObject.CompareTag(_tag)) return;
             
-            _action?.Invoke(other.gameObject); 
-            
-            
+            _action?.Invoke(other.gameObject);
         }
     }
-
-
+    
     [Serializable]
     public class EnterEvent : UnityEvent<GameObject>
     {
