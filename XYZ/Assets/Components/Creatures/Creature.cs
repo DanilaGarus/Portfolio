@@ -32,7 +32,6 @@ namespace Assets.Creatures
         protected static readonly int IsRunning = Animator.StringToHash("Is_Running");
         protected static readonly int VerticalVelocity = Animator.StringToHash("vertical_velocity");
         protected static readonly int Hit = Animator.StringToHash("Hit_trigger");
-        protected static readonly int Heal = Animator.StringToHash("Is_healing");
         protected static readonly int Attackk = Animator.StringToHash("Attack");
 
 

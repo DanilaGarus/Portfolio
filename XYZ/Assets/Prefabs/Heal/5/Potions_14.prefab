@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4536650521651287682}
   - component: {fileID: 4536650521651287683}
   - component: {fileID: 4536650521651287680}
-  - component: {fileID: 4536650521651287740}
   - component: {fileID: 4536650521651287741}
   - component: {fileID: 4536650521651287742}
+  - component: {fileID: 4536650520395841829}
   m_Layer: 0
   m_Name: Potions_14
   m_TagString: Untagged
@@ -127,35 +127,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4536650521651287740}
-        m_TargetAssemblyTypeName: PixelGame.World_Scripts.HealthPoision, Assembly-CSharp
-        m_MethodName: Heal
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4536650521651287740}
-        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
-        m_MethodName: StopAllCoroutines
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4536650521651287741}
         m_TargetAssemblyTypeName: PixelGame.World_Scripts.ObjectDestroyComponent,
           Assembly-CSharp
         m_MethodName: Destroy
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4536650520395841829}
+        m_TargetAssemblyTypeName: Components.Collectables.AddInInventoryComponent,
+          Assembly-CSharp
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -216,19 +205,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &4536650521651287740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4536650521651287743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56e640ba8c9a33a4da8b0e94d5d5d50f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _heal: 5
 --- !u!114 &4536650521651287741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,3 +234,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.018924713, y: -0.07359019}
   m_Size: {x: 0.5482712, y: 0.6109888}
   m_Direction: 0
+--- !u!114 &4536650520395841829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4536650521651287743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97bab6762fa4ae6840c3cd771589fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Heal
+  _count: 1

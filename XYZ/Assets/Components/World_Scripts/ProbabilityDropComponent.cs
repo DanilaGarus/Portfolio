@@ -48,6 +48,10 @@ namespace Components.World_Scripts
 
             _onDropCalculated?.Invoke(itemsToDrop);
         }
+        public void SetCount(int count)
+        {
+            _count = count;
+        }
 
         [Serializable]
         public class DropData
@@ -61,11 +65,6 @@ namespace Components.World_Scripts
         public class DropEvent : UnityEvent<GameObject[]>
         {
 
-        }
-
-        public void SetCount(int count)
-        {
-            _count = count;
         }
     }
 }

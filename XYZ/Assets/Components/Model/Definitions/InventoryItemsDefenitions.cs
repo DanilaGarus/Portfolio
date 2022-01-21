@@ -6,7 +6,7 @@ namespace Components.Model.Definitions
     [CreateAssetMenu(menuName = "Defs/InventoryItems", fileName = "InventoryItems" )]
     public class InventoryItemsDefenitions : ScriptableObject
     {
-        [SerializeField] private ItemDefenitions[] _items;
+        [SerializeField] public ItemDefenitions[] _items;
 
         public ItemDefenitions Get(string id)
         {
@@ -29,7 +29,9 @@ namespace Components.Model.Definitions
     public struct ItemDefenitions
     {
         [SerializeField] private string _id;
+        [SerializeField] private bool _canStack;
         public string ID => _id;
+        public bool CanStack => _canStack;
 
         public bool IsVoid => string.IsNullOrWhiteSpace(_id);
     }

@@ -254,3 +254,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Coins
   _count: 1
+  _canStack: 0

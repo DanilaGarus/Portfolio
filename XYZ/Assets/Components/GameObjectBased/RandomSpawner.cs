@@ -17,13 +17,9 @@ namespace Components.GameObjectBased
 
         [SerializeField] private float _waitTime = 0.1f;
         [SerializeField] private float _speed = 6;
-    
-
-    
 
         private Coroutine _routine;
 
-    
         public void StartDrop(GameObject[] items)
         {
             TryStopRoutine();
@@ -41,7 +37,13 @@ namespace Components.GameObjectBased
             }
         }
 
-    
+        public void DropImmediate(GameObject[] items)
+        {
+            foreach (var item in items)
+            {
+                Spawn(item);
+            }
+        }
 
         private void Spawn(GameObject particle)
         {

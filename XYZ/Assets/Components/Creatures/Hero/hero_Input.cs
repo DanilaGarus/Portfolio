@@ -33,6 +33,14 @@ namespace Components.Creatures.Hero
             }
         }
 
+        public void OnHeal(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.Heal();
+            }
+        }
+        
         public void OnAttack(InputAction.CallbackContext context)
         {
             if (context.performed)

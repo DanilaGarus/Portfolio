@@ -11,7 +11,7 @@ namespace Components.Health
         [SerializeField] private UnityEvent _onDamageTake;
         [SerializeField] private UnityEvent _onPoisionDamageTake;
         [SerializeField] private UnityEvent _poisionCollisionVelocity;
-        [SerializeField] private UnityEvent _onDie;
+        [SerializeField] public UnityEvent _onDie;
         [SerializeField] private UnityEvent _onCut;
         [SerializeField] private HealthChangeEvent _onChange;
         private Coroutine _routine;
@@ -38,7 +38,10 @@ namespace Components.Health
         {
             _health += heal;
             _onChange?.Invoke(_health);
-            StopCoroutine(_routine);
+            if (_routine != null)
+            {
+                StopCoroutine(_routine); 
+            }
         }
                 
         public void PeriodicDamage()
@@ -72,8 +75,14 @@ namespace Components.Health
         {
             _health = health;
         }
-    }
 
+        private void OnDestroy()
+        {
+            _onDie.RemoveAllListeners();
+        }
+    }
+    
+    
     [Serializable]
     public class HealthChangeEvent : UnityEvent<int>
     {

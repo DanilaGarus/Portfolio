@@ -9,6 +9,8 @@ using Components.Model;
 using Components.Utils;
 using Components.World_Scripts;
 using UnityEngine;
+using UnityEngine.Events;
+
 //using UnityEditor.Animations;
 
 
@@ -52,7 +54,9 @@ namespace Components.Creatures.Hero
         private readonly Collider2D[] _interactionResult = new Collider2D[1];        
         private bool _allowDoubleJump;
 
-
+        [Space] [Header("Heal Event")]
+        [SerializeField] private UnityEvent _action;
+        
         ParticleSystem ps;
 
         private List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
@@ -162,11 +166,6 @@ namespace Components.Creatures.Hero
                 SpawnCoins();
             }
         }
-
-        public void SpikesHeal()
-        {
-            Animator.SetTrigger(Heal);
-        }
         
         private void SpawnCoins()
         {
@@ -181,6 +180,15 @@ namespace Components.Creatures.Hero
         public void Interact()
         {
             _interactionCheck.Check();           
+        }
+
+        public void Heal()
+        {
+            if (_session.Data.Inventory.Count("Heal") > 0)
+            {
+                _session.Data.Inventory.Remove("Heal",1);
+                _action?.Invoke();
+            }
         }
         
         public override void Attack()

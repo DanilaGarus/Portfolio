@@ -1,69 +1,28 @@
 ﻿using System;
-using Components.ColliderBased;
-using Components.GameObjectBased;
 using Components.Utils;
+using Components.World_Scripts;
 using UnityEngine;
 
 namespace Components.Creatures.Mobs
 {
     public class ShootingTrapAI : MonoBehaviour
     {
-        [SerializeField] private ColliderCheck _vision;
-
-        [Header("Melee")]
-        [SerializeField] private Cooldown _meleeCooldown;
-        [SerializeField] private CheckCircleOverlap _meleeAttack;
-        [SerializeField] private ColliderCheck _meleeCanAttack;
-
-        [Header("Range")]
-        [SerializeField] private Cooldown _rangeCooldown;
-        [SerializeField] private SpawnComponent _rangeAttack;
-        private Animator _animator;
-
-        protected static readonly int Melee = Animator.StringToHash("melee");
-        protected static readonly int Range = Animator.StringToHash("range");
-        
-        private void Awake()
-        {
-            _animator = GetComponent<Animator>();
-        }
+        [SerializeField] public ColliderCheck _vision;
+        [SerializeField] private Cooldown _cooldown;
+        [SerializeField] private SpriteAnimation _animation;
 
         private void Update()
         {
-            if (_vision.IsTouchingLayer)
+            if (_vision.IsTouchingLayer && _cooldown.IsReady)
             {
-                if (_meleeCanAttack.IsTouchingLayer)
-                {
-                    if (_meleeCooldown.IsReady)
-                        MeleeAttack();
-                    return;
-                }
-
-                if (_rangeCooldown.IsReady)
-                    RangeAttack();
+                Shoot();
             }
         }
 
-        private void RangeAttack()
+        public void Shoot()
         {
-            _rangeCooldown.Reset();
-            _animator.SetTrigger(Range);
-        }
-
-        private void MeleeAttack()
-        {
-            _meleeCooldown.Reset();
-            _animator.SetTrigger(Melee);
-        }
-
-        private void OnRangeAttack()
-        {
-            _rangeAttack.Spawn();
-        }
-
-        private void OnMeleeAttack()
-        {
-            _meleeAttack.Check();
+            _cooldown.Reset();
+            _animation.SetClip("startAttack");
         }
     }
 }
