@@ -100,7 +100,6 @@ namespace Components.Creatures.Mobs
 
         private void SetDirectionToTarget()
         {
-
             var direction = GetDirectionToTarget();
             _creature.SetDirection(direction);
         }
@@ -111,9 +110,7 @@ namespace Components.Creatures.Mobs
             direction.y = 0;
             return direction.normalized;
         }
-        
-        
-        
+
         private void StartState(IEnumerator coroutine)
         {
             _creature.SetDirection(Vector2.zero);

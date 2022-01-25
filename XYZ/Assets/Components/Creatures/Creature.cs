@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Components.Audio;
 using UnityEngine;
 using Components.ColliderBased;
 using Components.GameObjectBased;
@@ -8,10 +9,10 @@ namespace Assets.Creatures
     public class Creature : MonoBehaviour
     {
         [Header("Params")]
-        [SerializeField] private bool _invertScale;
-        [SerializeField] private float _speed;
+        [SerializeField] protected bool _invertScale;
+        [SerializeField] protected float _speed;
         [SerializeField] protected float _jumpspeed;
-        [SerializeField] private float _DamageVelocity;
+        [SerializeField] protected float _DamageVelocity;
         
 
         [Header("Chekers")]
@@ -24,6 +25,7 @@ namespace Assets.Creatures
 
         protected Rigidbody2D Rigidbody;
         protected Animator Animator;
+        protected PlaySoundsComponent Sounds;
         protected Vector2 Direction;      
         protected bool IsGrounded;
         protected bool IsJumping;
@@ -39,6 +41,7 @@ namespace Assets.Creatures
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
+            Sounds = GetComponent<PlaySoundsComponent>();
         }
 
         public void SetDirection(Vector2 direction)
@@ -51,7 +54,7 @@ namespace Assets.Creatures
             IsGrounded = _GroundCheck.IsTouchingLayer;
         }
 
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             var xVelocity = Direction.x * _speed;
             var yVelocity = CalculateYVelocity();
@@ -67,7 +70,7 @@ namespace Assets.Creatures
 
         protected virtual float CalculateYVelocity()
         {
-            var yVelocity = Rigidbody.velocity.y;
+             var yVelocity = Rigidbody.velocity.y;
             var IsJumpPressing = Direction.y > 0;
 
             if (IsGrounded) IsJumping = false;
@@ -93,11 +96,17 @@ namespace Assets.Creatures
             if (IsGrounded)
             {
                 yVelocity += _jumpspeed;
-                _particles.Spawn("Jump");                
+                DoJumpVfx();
             }
             return yVelocity;
         }
 
+        protected void DoJumpVfx()
+        {
+            _particles.Spawn("Jump");   
+            Sounds.Play("Jump");
+        }
+        
         public void UpdateSpriteDirection(Vector2 direction)
         {
             var multiplier = _invertScale ? -1 : 1;
@@ -122,6 +131,7 @@ namespace Assets.Creatures
         public virtual void Attack()
         {            
             Animator.SetTrigger(Attackk);
+            Sounds.Play("Melee");
         }
 
         public void OnDoAttack()

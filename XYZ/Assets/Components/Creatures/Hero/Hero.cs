@@ -6,6 +6,7 @@ using Components.ColliderBased;
 using Components.GameObjectBased;
 using Components.Health;
 using Components.Model;
+using Components.Model.Data;
 using Components.Utils;
 using Components.World_Scripts;
 using UnityEngine;
@@ -16,7 +17,7 @@ using UnityEngine.Events;
 
 namespace Components.Creatures.Hero
 {
-    public class Hero : Creature
+    public class Hero : Creature, ICanAddInInventory
     {
         [Space]
         [Header("Values")]    
@@ -145,8 +146,8 @@ namespace Components.Creatures.Hero
         {
              if (!IsGrounded && _allowDoubleJump)
              {
-                _particles.Spawn("Jump");                
-                _allowDoubleJump = false;
+                 _allowDoubleJump = false;
+                 DoJumpVfx();
                 return _jumpspeed;
              }
              return base.CalculateJumpVelocity(yVelocity);
@@ -210,7 +211,7 @@ namespace Components.Creatures.Hero
             }
             else
             {
-                BurstAndRemoveFromInventory();
+                ThrowAndRemoveFromInventory();
             }
 
             _burstThrow = false;
@@ -220,14 +221,15 @@ namespace Components.Creatures.Hero
         {
             for (int i = 0; i < throwsCount; i++)
             {
-                BurstAndRemoveFromInventory();
+                ThrowAndRemoveFromInventory();
                 yield return new WaitForSeconds(_burstDelay);
             }
         }
 
 
-        private void BurstAndRemoveFromInventory()
+        private void ThrowAndRemoveFromInventory()
         {
+            Sounds.Play("Range");
             _particles.Spawn("Throw");
             _session.Data.Inventory.Remove("Sword",1);
         }

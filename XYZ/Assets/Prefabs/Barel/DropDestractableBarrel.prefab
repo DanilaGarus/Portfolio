@@ -93,7 +93,7 @@ MonoBehaviour:
   _drop:
   - Drop: {fileID: 1135212724373348314, guid: febc3f1283762044494a1f9057b11132, type: 3}
     Probability: 80
-  - Drop: {fileID: 7425463035131820586, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+  - Drop: {fileID: 8356349744930466237, guid: 9ed9261bcd0d0c448b86074b4c9accc4, type: 3}
     Probability: 20
   _onDropCalculated:
     m_PersistentCalls:
@@ -226,12 +226,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579969490781768486}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de1d5c4e02873e04b8081d217408e34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _framerate: 10
+  _framerate: 6
   _clips:
   - _name: idle
     _sprites:
@@ -269,7 +269,6 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 470207766931ff042ae96e4d08ad9129, type: 3}
     - {fileID: 21300000, guid: ac4508782bed54e4f83ff512cea98294, type: 3}
     - {fileID: 21300000, guid: 5b678b1828a4ca54f81f0e389dc3dc7e, type: 3}
-    - {fileID: 21300000, guid: 470207766931ff042ae96e4d08ad9129, type: 3}
     _loop: 0
     _allowNextClip: 0
     _onComplete:
@@ -312,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edba5bdb06b80d643bd724ae57a2562f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
+  _health: 2
   _onDamageTake:
     m_PersistentCalls:
       m_Calls:

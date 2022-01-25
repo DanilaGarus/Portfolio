@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 302340223}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1477549550}
   - component: {fileID: 4268530828141164763}
   - component: {fileID: 7100931651539570841}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509110973}
   - component: {fileID: 1509110974}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: PatrolGroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,6 +319,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1628390058}
   _prefab: {fileID: 1399144118}
+--- !u!1 &1654901840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1654901842}
+  - component: {fileID: 1654901841}
+  m_Layer: 8
+  m_Name: ObstacleCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1654901842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654901840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.439, y: -0.259, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2124747537}
+  m_Father: {fileID: 8677086549609781562}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1654901841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654901840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c5e1952e5149bb93dfa5ab48732f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Layer:
+    serializedVersion: 2
+    m_Bits: 64
+  _BarrelLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _isTouchingLayer: 0
+  _target: {fileID: 2124747537}
 --- !u!1 &1912609807
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +416,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1912609808}
   _prefab: {fileID: 5546952401176815316, guid: ed6a416003617f84d9f6d29eb45e3599, type: 3}
+--- !u!1 &2124747536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2124747537}
+  m_Layer: 8
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2124747537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124747536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.29, y: 0.008, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1654901842}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5083199991343770155
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +504,7 @@ GameObject:
   - component: {fileID: 1922072481938535452}
   - component: {fileID: 3828954062559241389}
   - component: {fileID: 3848430609425141731}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -536,7 +618,7 @@ GameObject:
   - component: {fileID: 8677086548250673444}
   - component: {fileID: 8677086548250673446}
   - component: {fileID: 8677086548250673447}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,9 +828,8 @@ GameObject:
   - component: {fileID: 8677086549609781442}
   - component: {fileID: 500524766}
   - component: {fileID: 3817095254596855503}
-  - component: {fileID: 1760473994}
   - component: {fileID: 680891466}
-  - component: {fileID: 960755924}
+  - component: {fileID: 1263748139}
   m_Layer: 12
   m_Name: Sharky
   m_TagString: Enemy
@@ -779,6 +860,7 @@ Transform:
   - {fileID: 1399144119}
   - {fileID: 1628390058}
   - {fileID: 1509110973}
+  - {fileID: 1654901842}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1125,7 +1207,20 @@ MonoBehaviour:
   _alarmDelay: 0.5
   _attackCoolDown: 1
   _missHeroCooldown: 0.5
---- !u!114 &1760473994
+--- !u!114 &680891466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677086549609781560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d6d69b84a022340956c0fd88e07979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ObjectToDestroy: {fileID: 8677086549609781560}
+--- !u!114 &1263748139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1140,35 +1235,7 @@ MonoBehaviour:
   _points:
   - {fileID: 0}
   - {fileID: 0}
-  _treshhold: 0.2
---- !u!114 &680891466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8677086549609781560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d6d69b84a022340956c0fd88e07979, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ObjectToDestroy: {fileID: 8677086549609781560}
---- !u!114 &960755924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8677086549609781560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8f6c7a858773940903c05591b3f012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _groundCheck: {fileID: 1509110974}
-  _creature: {fileID: 5312220374873928730}
-  _direction: 1
+  _treshhold: 1
 --- !u!1 &9095291652892458270
 GameObject:
   m_ObjectHideFlags: 0
