@@ -1329,17 +1329,9 @@ PrefabInstance:
       propertyPath: _points.Array.data[1]
       value: 
       objectReference: {fileID: 1149567581}
-    - target: {fileID: 1399144121, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
-      propertyPath: _drop.Array.data[1].Drop
-      value: 
-      objectReference: {fileID: 8356349744930466237, guid: 9ed9261bcd0d0c448b86074b4c9accc4, type: 3}
     - target: {fileID: 8677086549609781560, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
       propertyPath: m_Name
       value: Sharky
-      objectReference: {fileID: 0}
-    - target: {fileID: 8677086549609781560, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8677086549609781562, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
       propertyPath: m_RootOrder
@@ -1660,25 +1652,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ef0484696c3174aa63c5143e872c57, type: 3}
---- !u!1 &1263748138 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8677086549609781560, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
-  m_PrefabInstance: {fileID: 452321590}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1263748139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263748138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f57f1c876f7a4037a9045d9e28f3705c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _source: {fileID: 0}
-  _sounds: []
 --- !u!1 &1338975849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,17 +1702,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8677086549609781562, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
   m_PrefabInstance: {fileID: 452321590}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1352565278 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3817095254596855503, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
-  m_PrefabInstance: {fileID: 452321590}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263748138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d0a9659283d0347a72c08de125b753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1361554620
 GameObject:
   m_ObjectHideFlags: 0
@@ -6150,7 +6112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 639094087549075459, guid: 4992adb3257e7cb42a4a1f568c96b07c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -55.15
+      value: -51.972
       objectReference: {fileID: 0}
     - target: {fileID: 639094087549075459, guid: 4992adb3257e7cb42a4a1f568c96b07c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6188,14 +6150,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 639094087549075468, guid: 4992adb3257e7cb42a4a1f568c96b07c, type: 3}
-      propertyPath: _clips.Array.data[1]._sprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8580535acb782044cb58d7cb57144a9e, type: 3}
-    - target: {fileID: 639094087549075468, guid: 4992adb3257e7cb42a4a1f568c96b07c, type: 3}
-      propertyPath: _clips.Array.data[1]._sprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8c4eeb5fb15cf4b4c935f8eb05ee2394, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4992adb3257e7cb42a4a1f568c96b07c, type: 3}
 --- !u!1001 &3467244469567251314
@@ -6274,22 +6228,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1217712942}
     m_Modifications:
-    - target: {fileID: 2533700762874718941, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
-      propertyPath: _prefab
-      value: 
-      objectReference: {fileID: 4030739851352954388, guid: c790cba79a326754eac9bd30ef124d48, type: 3}
-    - target: {fileID: 3567130523471548273, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1352565278}
-    - target: {fileID: 4157945939472240999, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
-      propertyPath: m_Size.x
-      value: 7.1542263
-      objectReference: {fileID: 0}
-    - target: {fileID: 4157945939472240999, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
-      propertyPath: m_Offset.x
-      value: -3.2726822
-      objectReference: {fileID: 0}
     - target: {fileID: 4580250370382733824, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6337,10 +6275,6 @@ PrefabInstance:
     - target: {fileID: 5220501730854982291, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
       propertyPath: m_Name
       value: Seashell
-      objectReference: {fileID: 0}
-    - target: {fileID: 5220501730854982291, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56bbac940172a8b4c860da8814d03306, type: 3}

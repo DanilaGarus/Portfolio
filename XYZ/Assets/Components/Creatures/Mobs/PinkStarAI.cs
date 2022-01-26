@@ -12,11 +12,15 @@ namespace Components.Creatures.Mobs
 {
     public class PinkStarAI : MonoBehaviour
     {
+        [Header("Params")]
         [SerializeField] private float _alarmDelay = 1f;
         [SerializeField] private float _missHeroCooldown = 0.5f;
         
+        [Header("Chekers")]
         [SerializeField] private ColliderCheck _vision;
         [SerializeField] private SpriteAnimation _sprite;
+        [SerializeField] private GameObject _attackCollider2D;
+        
         private GameObject _target;
         private PinkStar _pinkStar;
         private Coroutine _current;
@@ -25,6 +29,7 @@ namespace Components.Creatures.Mobs
         private void Awake()
         {
             _pinkStar = GetComponent<PinkStar>();
+            _particles = GetComponent<SpawnListComponent>();
         }
 
         public void StartWait(GameObject target)
@@ -37,7 +42,7 @@ namespace Components.Creatures.Mobs
             _target = target;
             yield return new WaitForSeconds(_alarmDelay);
             StartState(ArgToHero(target));
-            // _particles.Spawn("Exclamation");
+             _particles.Spawn("Exclamination");
         }
         
         private IEnumerator ArgToHero(GameObject target)
@@ -56,22 +61,27 @@ namespace Components.Creatures.Mobs
         }
 
         private IEnumerator Attack()
-        { 
-            if (_vision.IsTouchingLayer) 
-            { 
-                _sprite.SetClip("Attack-spin"); 
-                SetDirectionToTarget(); 
-                yield return null; 
-                
-            }
-            else if (!_vision.IsTouchingLayer)
+        {
+            _attackCollider2D.SetActive(true);
+            _sprite.SetClip("Attack-spin"); 
+            while (_vision.IsTouchingLayer) 
             {
-                _pinkStar.SetDir(Vector2.zero); 
-                yield return new WaitForSeconds(_missHeroCooldown); 
-                _sprite.SetClip("idle"); 
+                SetDirectionToTarget(); 
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+            _pinkStar.SetDir(Vector2.zero);
+            _attackCollider2D.SetActive(false);
+            _sprite.SetClip("idle");
+            _particles.Spawn("Miss");
+            yield return new WaitForSeconds(_missHeroCooldown);
+            LookAtHero();
+            
+            if (!_vision.IsTouchingLayer)
+            {
                 LookAtHero();
             }
-            //_particles.Spawn("Miss");
         }
         
         private void SetDirectionToTarget()

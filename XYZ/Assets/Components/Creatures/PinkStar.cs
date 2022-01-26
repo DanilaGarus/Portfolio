@@ -1,12 +1,13 @@
-﻿using Components.Audio;
+﻿using System.Collections;
+using Components.Audio;
 using Components.ColliderBased;
+using Components.Health;
 using UnityEngine;
 
 namespace Assets.Creatures
 {
     public class PinkStar : Creature
     {
-        [SerializeField] private CheckCircleOverlap _attackRangePinkstar;
         private Rigidbody2D _rg;
         private Vector2 _direction;
         
@@ -48,7 +49,7 @@ namespace Assets.Creatures
                 transform.localScale = new Vector3(-1 * multiplier, 1, 1);
             }
         }
-
+        
         public override void TakeDamage()
         {
             _rg.velocity = new Vector2(_rg.velocity.x,_DamageVelocity);

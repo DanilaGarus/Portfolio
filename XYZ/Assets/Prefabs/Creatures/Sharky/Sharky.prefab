@@ -78,7 +78,7 @@ MonoBehaviour:
   _drop:
   - Drop: {fileID: 1135212724373348314, guid: febc3f1283762044494a1f9057b11132, type: 3}
     Probability: 81
-  - Drop: {fileID: 7425463035131820586, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+  - Drop: {fileID: 8356349744930466237, guid: 9ed9261bcd0d0c448b86074b4c9accc4, type: 3}
     Probability: 20
   _onDropCalculated:
     m_PersistentCalls:
@@ -830,13 +830,14 @@ GameObject:
   - component: {fileID: 3817095254596855503}
   - component: {fileID: 680891466}
   - component: {fileID: 1263748139}
+  - component: {fileID: 1457713998300783824}
   m_Layer: 12
   m_Name: Sharky
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8677086549609781562
 Transform:
   m_ObjectHideFlags: 0
@@ -1236,6 +1237,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _treshhold: 1
+--- !u!114 &1457713998300783824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677086549609781560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57f1c876f7a4037a9045d9e28f3705c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 0}
+  _sounds: []
 --- !u!1 &9095291652892458270
 GameObject:
   m_ObjectHideFlags: 0
