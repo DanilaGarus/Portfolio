@@ -37,9 +37,8 @@ namespace Components.UI.MainMenu
 
         public override void OnCloseAnimationComplete()
         {
-            base.OnCloseAnimationComplete();
-            
             _closeAnimation?.Invoke();
+            base.OnCloseAnimationComplete();
         }
     }
 }

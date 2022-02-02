@@ -265,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &330008693
 Transform:
   m_ObjectHideFlags: 0
@@ -1298,7 +1298,7 @@ MonoBehaviour:
     _inventoryData:
       _inventory:
       - _id: Sword
-        _value: 5
+        _value: 25
     _hp: 10
 --- !u!4 &445172679
 Transform:
@@ -1335,7 +1335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8677086549609781560, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8677086549609781562, guid: 25a140a31bcf4dc4ea1552d61274c355, type: 3}
       propertyPath: m_RootOrder
@@ -6282,7 +6282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5220501730854982291, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56bbac940172a8b4c860da8814d03306, type: 3}
