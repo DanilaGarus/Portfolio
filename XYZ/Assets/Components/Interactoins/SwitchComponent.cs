@@ -8,21 +8,17 @@ namespace Components.Interactoins
         [SerializeField] private bool _state;
         [SerializeField] private string _animationKey;
         
-
         public void Switch()
         {
             _state = !_state;
             _animator.SetBool(_animationKey, _state);
         }
 
-
         [ContextMenu("Switch")]
         public void Start()
         {
             Switch();
-
         }
-
     }
 }
 

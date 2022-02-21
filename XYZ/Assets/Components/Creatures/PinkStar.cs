@@ -16,7 +16,7 @@ namespace Assets.Creatures
             _rg = GetComponent<Rigidbody2D>();
         }
 
-        protected void Update()
+        protected override void Update()
         {
             
         }

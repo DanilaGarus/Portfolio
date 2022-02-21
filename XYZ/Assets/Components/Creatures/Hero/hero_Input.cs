@@ -7,7 +7,6 @@ namespace Components.Creatures.Hero
     {
         [SerializeField] private Hero _hero;
 
-   
         public void OnHorizontalMovement(InputAction.CallbackContext context)
         {
             var derectionX = context.ReadValue<float>();
@@ -67,6 +66,14 @@ namespace Components.Creatures.Hero
             if (context.canceled)
             {
                 _hero.PerformBurst();
+            }
+        }
+
+        public void OnPauseMenuOpen(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.OpenPauseMenu();
             }
         }
     }

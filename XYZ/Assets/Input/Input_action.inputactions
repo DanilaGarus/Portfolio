@@ -6,14 +6,6 @@
             "id": "55cc29e4-8429-49be-bc21-7614e4f65833",
             "actions": [
                 {
-                    "name": "SaySmthng",
-                    "type": "Button",
-                    "id": "e7b4ae31-9002-4b2f-a018-c0275287a0fe",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "263ddb35-07ba-401c-8742-6de5afd93ff6",
@@ -52,20 +44,17 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "OpenMenu",
+                    "type": "Button",
+                    "id": "e6e1863b-4530-43bf-b551-3fea83dbea70",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "4699aa3b-a1c8-4ecb-a333-33721f8285e4",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SaySmthng",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "8744f2a2-972b-4656-8cf9-a1542fa30ad1",
@@ -239,6 +228,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Heal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2d9fc5d-14b7-49d0-9d00-ac363b2d774e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

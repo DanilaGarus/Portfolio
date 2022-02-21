@@ -7,6 +7,7 @@ using Components.GameObjectBased;
 using Components.Health;
 using Components.Model;
 using Components.Model.Data;
+using Components.UI.MainMenu;
 using Components.Utils;
 using Components.World_Scripts;
 using UnityEngine;
@@ -278,6 +279,13 @@ namespace Components.Creatures.Hero
         private void UpdateHeroWeapon()
         {
             Animator.runtimeAnimatorController = _session.Data.Inventory.Count("Sword") > 0 ? _armed : _disarmed;
+        }
+
+        public void OpenPauseMenu()
+        {
+            var window = Resources.Load<GameObject>("UI/PauseMenuWindow");
+            var canvas = FindObjectOfType<Canvas>();
+            Instantiate(window, canvas.transform);
         }
     }
 }

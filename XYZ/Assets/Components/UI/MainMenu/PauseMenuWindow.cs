@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace Components.UI.MainMenu
 {
-    public class MainMenuWindow : WindowController
+    public class PauseMenuWindow : WindowController
     {
         private Action _closeAnimation;
         
@@ -15,28 +15,24 @@ namespace Components.UI.MainMenu
             Instantiate(window, canvas.transform);
         }
 
-        public void OnGameStart()
+        public void OnGameContinue()
         {
-            _closeAnimation = () => { SceneManager.LoadScene("PixelGame"); };
+            var menu = FindObjectOfType<PauseMenuWindow>();
             Close();
         }
 
-        public void OnExit()
+        public void OnMainMenuExit()
         {
-            _closeAnimation = () => 
-            { 
-                Application.Quit();
-
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#endif
+            _closeAnimation = () =>
+            {
+                SceneManager.LoadScene("MainMenu");
             };
-            Close(); 
+            Close();
         }
 
         public override void OnCloseAnimationComplete()
         {
             _closeAnimation?.Invoke();
             base.OnCloseAnimationComplete(); }
-    }
+    } 
 }

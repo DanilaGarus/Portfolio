@@ -40,10 +40,10 @@ AudioSource:
   m_GameObject: {fileID: 809389078}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 0ad5d3bf6c5023247b74ebb018596c7e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9d7197e8d8e7e7d45b735535561a7d73, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _invertScale: 0
   _speed: 3
-  _jumpspeed: 12
+  _jumpspeed: 11
   _DamageVelocity: 9
   _groundlayer:
     serializedVersion: 2
@@ -811,10 +811,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e7b4ae31-9002-4b2f-a018-c0275287a0fe
-    m_ActionName: Hero/SaySmthng[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5221101642123365549}
@@ -895,6 +891,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b31e8986-00d0-408f-94eb-00d6dc8bf8ae
     m_ActionName: Hero/Heal[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5221101642123365548}
+        m_TargetAssemblyTypeName: Components.Creatures.Hero.Hero, Assembly-CSharp
+        m_MethodName: OpenPauseMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e6e1863b-4530-43bf-b551-3fea83dbea70
+    m_ActionName: Hero/OpenMenu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -1223,7 +1235,7 @@ AudioSource:
   m_GameObject: {fileID: 7554100695298402849}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b015266a73f6fc04798a16b33c5eeef5, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5

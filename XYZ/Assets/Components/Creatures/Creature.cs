@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Components.Audio;
+﻿using Components.Audio;
 using UnityEngine;
 using Components.ColliderBased;
 using Components.GameObjectBased;
@@ -14,7 +13,6 @@ namespace Assets.Creatures
         [SerializeField] protected float _jumpspeed;
         [SerializeField] protected float _DamageVelocity;
         
-
         [Header("Chekers")]
         [SerializeField] protected LayerMask _groundlayer;
         [SerializeField] protected LayerMask _BarrelLayer;
@@ -35,8 +33,7 @@ namespace Assets.Creatures
         protected static readonly int VerticalVelocity = Animator.StringToHash("vertical_velocity");
         protected static readonly int Hit = Animator.StringToHash("Hit_trigger");
         protected static readonly int Attackk = Animator.StringToHash("Attack");
-
-
+        
         protected virtual void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();

@@ -6163,14 +6163,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1217712942}
     m_Modifications:
-    - target: {fileID: 809389080, guid: 68a6d06315990c849aca0b1ca6ca4978, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 809389080, guid: 68a6d06315990c849aca0b1ca6ca4978, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: 0ad5d3bf6c5023247b74ebb018596c7e, type: 2}
     - target: {fileID: 5221101642123365712, guid: 68a6d06315990c849aca0b1ca6ca4978, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -6219,10 +6211,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8852952886029346598, guid: 68a6d06315990c849aca0b1ca6ca4978, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: b015266a73f6fc04798a16b33c5eeef5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68a6d06315990c849aca0b1ca6ca4978, type: 3}
 --- !u!1001 &6717904069622510447

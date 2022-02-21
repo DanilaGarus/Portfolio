@@ -6,8 +6,5 @@ namespace Components.Creatures.Mobs.Patroling
     public abstract class Patrol : MonoBehaviour
     {
         public abstract IEnumerator DoPatrol();
-
-        
-        
     }
 }
