@@ -53,8 +53,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1517107490052285520}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+      - m_Target: {fileID: 2955513586586645020}
+        m_TargetAssemblyTypeName: Components.Audio.PlaySfxSound, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -124,7 +124,17 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7425463035131820590, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 8356349744930466237}
+    - target: {fileID: 7425463035131820590, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 7425463035131820590, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
 --- !u!1 &8356349744930466237 stripped
 GameObject:
@@ -158,8 +168,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97bab6762fa4ae6840c3cd771589fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &1517107490052285520 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: -9081819117971540025, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
+--- !u!114 &2955513586586645020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4467337093416526219, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
   m_PrefabInstance: {fileID: 1511868724793234327}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356349744930466237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3d982a75cd4cb8a2f5036118526d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

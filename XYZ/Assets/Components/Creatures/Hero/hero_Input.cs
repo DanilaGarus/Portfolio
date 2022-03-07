@@ -32,11 +32,11 @@ namespace Components.Creatures.Hero
             }
         }
 
-        public void OnHeal(InputAction.CallbackContext context)
+        public void OnNextItem(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                _hero.Heal();
+                _hero.NextItem();
             }
         }
         
@@ -66,14 +66,6 @@ namespace Components.Creatures.Hero
             if (context.canceled)
             {
                 _hero.PerformBurst();
-            }
-        }
-
-        public void OnPauseMenuOpen(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                _hero.OpenPauseMenu();
             }
         }
     }

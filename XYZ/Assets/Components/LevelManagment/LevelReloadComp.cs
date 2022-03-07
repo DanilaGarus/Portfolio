@@ -15,5 +15,4 @@ namespace Components.LevelManagment
             SceneManager.LoadScene(scene.name);
         }
     }
-
 }

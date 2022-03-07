@@ -1,5 +1,7 @@
 ﻿using Components.Model.Data;
+using Components.Utils.Disposables;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Components.Model
 {
@@ -8,18 +10,35 @@ namespace Components.Model
         [SerializeField] private PlayerData _data;
         public PlayerData Data => _data;
         private PlayerData _save;
-
+        
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
+        public QuickInventoryModel QuickInventory { get; private set; }
 
         private void Awake()
         {
+            LoadHUD();
+
             if (IsSessionExit())
             {
                 Destroy(gameObject);
             }
             else
             {
+                Save();
+                InitModels();
                 DontDestroyOnLoad(this);
             }
+        }
+
+        private void InitModels()
+        {
+            QuickInventory = new QuickInventoryModel(_data);
+            _trash.Retain(QuickInventory);
+        }
+
+        private void LoadHUD()
+        {
+            SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
         }
         
         private bool IsSessionExit()
@@ -44,6 +63,14 @@ namespace Components.Model
         public void LoadLastSave()
         {
             _data = _save.Clone();
+            
+            _trash.Dispose();
+            InitModels();
+        }
+        
+        private void OnDestroy()
+        {
+            _trash.Dispose();
         }
     }
 }

@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New Year.unity
     guid: e6df69895f0d3a448870de2dce30c8df
+  - enabled: 1
+    path: Assets/Scenes/HUD.unity
+    guid: 64c0a7abeeb8b2f4fa2b61404cb61850
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4d63bd9fecfd07a41b3c250bcf869ed0, type: 2}

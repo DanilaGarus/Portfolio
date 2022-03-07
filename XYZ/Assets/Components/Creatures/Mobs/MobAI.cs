@@ -16,6 +16,8 @@ namespace Components.Creatures.Mobs
         [SerializeField] private float _attackCoolDown = 1f;
         [SerializeField] private float _missHeroCooldown = 2f;
 
+        [SerializeField] private float _horizontalTreshhold = 0.2f;
+
         private Coroutine _current;
         private GameObject _target;
         private Creature _creature;
@@ -75,7 +77,12 @@ namespace Components.Creatures.Mobs
                 }
                 else
                 {
-                    SetDirectionToTarget();
+                    var horizontalDelta = Mathf.Abs(_target.transform.position.x - transform.position.x);
+                    
+                    if(horizontalDelta <= _horizontalTreshhold)
+                        _creature.SetDirection(Vector2.zero);
+                    else 
+                        SetDirectionToTarget();
                 }
                 
                 yield return null;
@@ -129,6 +136,8 @@ namespace Components.Creatures.Mobs
             _creature.SetDirection(Vector2.zero);
 
             if (_current != null) StopCoroutine(_current);
+            
+            _creature.SetDirection(Vector2.zero);
         }
 
     }

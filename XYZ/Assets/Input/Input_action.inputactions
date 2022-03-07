@@ -38,17 +38,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Heal",
+                    "name": "NextItem",
                     "type": "Button",
                     "id": "b31e8986-00d0-408f-94eb-00d6dc8bf8ae",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "OpenMenu",
-                    "type": "Button",
-                    "id": "e6e1863b-4530-43bf-b551-3fea83dbea70",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -223,22 +215,11 @@
                 {
                     "name": "",
                     "id": "a471fb6f-2589-4f17-8093-7cf41b3dc86c",
-                    "path": "<Keyboard>/h",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Heal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b2d9fc5d-14b7-49d0-9d00-ac363b2d774e",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenMenu",
+                    "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

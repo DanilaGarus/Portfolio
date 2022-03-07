@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Components.Model.Definitions
@@ -29,10 +30,17 @@ namespace Components.Model.Definitions
     public struct ItemDefenitions
     {
         [SerializeField] private string _id;
-        [SerializeField] private bool _canStack;
+        [SerializeField] private Sprite _icon;
+        [SerializeField] private ItemTag[] _tags;
+        
         public string ID => _id;
-        public bool CanStack => _canStack;
-
         public bool IsVoid => string.IsNullOrWhiteSpace(_id);
+        public Sprite Icon => _icon;
+
+        public bool HasTag(ItemTag tag)
+        {
+            return _tags.Contains(tag);
+        }
+        
     }
 }

@@ -406,6 +406,7 @@ MonoBehaviour:
   _BarrelCheck: {fileID: 0}
   _attackRange: {fileID: 0}
   _particles: {fileID: 0}
+  _hpBar: {fileID: 0}
 --- !u!114 &1655362158
 MonoBehaviour:
   m_ObjectHideFlags: 0

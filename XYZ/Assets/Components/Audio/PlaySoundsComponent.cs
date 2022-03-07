@@ -6,13 +6,17 @@ namespace Components.Audio
 {
     public class PlaySoundsComponent : MonoBehaviour
     {
-        [SerializeField] private AudioSource _source;
         [SerializeField] private AudioData[] _sounds;
-
+        
+        private AudioSource _source;
+        
         public void Play(string id)
         {
             foreach (var audioData in _sounds)
             {
+                if (_source == null)
+                    _source = AudioUtils.FindSfxSource();
+                
                 if (audioData.Id != id) continue;
                 
                 _source.PlayOneShot(audioData.Clip); 

@@ -110,7 +110,7 @@ namespace Assets.Creatures
 
             if (direction.x > 0)
             {
-                transform.localScale = new Vector3(multiplier, 1, 1); 
+                transform.localScale = new Vector3(multiplier, 1, 1);
             }
             else if (direction.x < 0)
             {

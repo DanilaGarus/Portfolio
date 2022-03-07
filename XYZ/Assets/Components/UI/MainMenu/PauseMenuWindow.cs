@@ -1,4 +1,6 @@
 ﻿using System;
+using Components.Model;
+using Components.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,31 +10,37 @@ namespace Components.UI.MainMenu
     {
         private Action _closeAnimation;
         
+        private float _defaultTimeScale;
+
+        /*При работе с таймскейл = 0 необходимо ставить в аниматоре апдейт мод
+        на анскейл тайм.
+        в таком случае игра стопится, апдейты не работают, но анимации
+        меню паузы работают*/
+        
+        protected override void Start()
+        {
+            base.Start();
+
+           _defaultTimeScale =  Time.timeScale;
+           Time.timeScale = 0;
+        }
+        
         public void OnShowSettings()
         {
-            var window = Resources.Load<GameObject>("UI/SettingsWindow");
-            var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
+            WindowUtils.CreateWindow("UI/SettingsWindow");
         }
-
-        public void OnGameContinue()
-        {
-            var menu = FindObjectOfType<PauseMenuWindow>();
-            Close();
-        }
-
+        
         public void OnMainMenuExit()
         {
-            _closeAnimation = () =>
-            {
-                SceneManager.LoadScene("MainMenu");
-            };
-            Close();
+            SceneManager.LoadScene("MainMenu");
+            var session = FindObjectOfType<GameSession>();
+            Destroy(session.gameObject);
+            
         }
-
-        public override void OnCloseAnimationComplete()
+        
+        private void OnDestroy()
         {
-            _closeAnimation?.Invoke();
-            base.OnCloseAnimationComplete(); }
-    } 
+            Time.timeScale = _defaultTimeScale;
+        }
+    }
 }

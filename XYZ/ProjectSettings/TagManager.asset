@@ -8,6 +8,8 @@ TagManager:
   - Coin10
   - Enemy
   - Interactables
+  - VFXSoundEffects
+  - PauseCanvas
   layers:
   - Default
   - TransparentFX

@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using Components.Audio;
-using Components.ColliderBased;
-using Components.Health;
+﻿using Assets.Creatures;
 using UnityEngine;
 
-namespace Assets.Creatures
+namespace Components.Creatures
 {
     public class PinkStar : Creature
     {
@@ -42,7 +39,7 @@ namespace Assets.Creatures
 
             if (direction.x > 0)
             {
-                transform.localScale = new Vector3(multiplier, 1, 1); 
+                transform.localScale = new Vector3(multiplier, 1, 1);
             }
             else if (direction.x < 0)
             {

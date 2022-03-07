@@ -1,10 +1,6 @@
-﻿using System;
-using Components.Creatures.Hero;
-using Components.Model;
-using Components.Model.Data;
+﻿using Components.Model.Data;
 using Components.Model.Definitions;
 using Components.Utils;
-using TMPro;
 using UnityEngine;
 
 namespace Components.Collectables

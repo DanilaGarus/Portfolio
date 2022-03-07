@@ -1,4 +1,5 @@
 ﻿using System;
+using Components.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +10,8 @@ namespace Components.UI.MainMenu
         private Action _closeAnimation;
         
         public void OnShowSettings()
-        {
-            var window = Resources.Load<GameObject>("UI/SettingsWindow");
-            var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
+        { 
+            WindowUtils.CreateWindow("UI/SettingsWindow");
         }
 
         public void OnGameStart()
@@ -37,6 +36,7 @@ namespace Components.UI.MainMenu
         public override void OnCloseAnimationComplete()
         {
             _closeAnimation?.Invoke();
-            base.OnCloseAnimationComplete(); }
+            base.OnCloseAnimationComplete(); 
+        }
     }
 }

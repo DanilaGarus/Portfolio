@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Assets.Creatures;
 using Components.ColliderBased;
 using Components.GameObjectBased;
 using Components.Health;
 using Components.Model;
 using Components.Model.Data;
+using Components.Model.Data.Properties;
+using Components.Model.Definitions;
 using Components.UI.MainMenu;
 using Components.Utils;
 using Components.World_Scripts;
@@ -25,7 +28,7 @@ namespace Components.Creatures.Hero
         [SerializeField] private float _fallVelocity;        
         [SerializeField] private Vector3 _groundCheckPositionDelta;
         [SerializeField] private float _groundCheckRadius;
-        private int _swordCount;
+        private int _swordCount => _session.Data.Inventory.Count(SwordId);
 
         [Header("Burst Throw")] [SerializeField]
         private Cooldown _burstCooldown;
@@ -47,10 +50,13 @@ namespace Components.Creatures.Hero
         // AnimationContrller на RuntimeAnimatorController
         //или добавить #IF #UNITY;
         
-       [SerializeField] private ProbabilityDropComponent _hitDrop;    
+       [SerializeField] private ProbabilityDropComponent _hitDrop;
+
+       [SerializeField] private SpawnComponent _throwSpawner;
 
         private GameSession _session;
 
+        private const string SwordId = "Sword";
         
         protected static readonly int ThrowKey = Animator.StringToHash("Throw");
         private readonly Collider2D[] _interactionResult = new Collider2D[1];        
@@ -63,29 +69,39 @@ namespace Components.Creatures.Hero
 
         private List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
 
-
-        private Collider2D _collider2d;
+        private string SelectedId => _session.QuickInventory.SelectedItem._id;
+        
+        private bool CanThrow
+        {
+            get
+            {
+                if (SelectedId == SwordId)
+                    return _swordCount > 1; 
+                 
+                var def = DefsFacade.I.Items.Get(SelectedId);
+                return def.HasTag(ItemTag.Throwable);
+            }
+        }
+        
         
         protected override void Awake()
         {
             base.Awake();
-            _collider2d = GetComponent<Collider2D>();
         }  
 
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-            _session.Save();
-            
+
             _session.Data.Inventory.OnChange += OnInventoryChange;
             _session.Data.Inventory.OnChange += AnotherHandler;
             
             var health = GetComponent<HealthComponent>();
-            health.SetHealth(_session.Data._hp);
+            health.SetHealth(_session.Data._hp.Value);
 
             UpdateHeroWeapon();
         }
-
+        
         private void OnDestroy()
         {
             _session.Data.Inventory.OnChange -= OnInventoryChange;
@@ -99,7 +115,7 @@ namespace Components.Creatures.Hero
 
         private void OnInventoryChange(string id, int value)
         {
-            if(id == "Sword") UpdateHeroWeapon();
+            if(id == SwordId) UpdateHeroWeapon();
         }
 
         private void OnEnable()
@@ -126,7 +142,7 @@ namespace Components.Creatures.Hero
 
         public void OnHealthChanged(int currentHealth)
         {
-            _session.Data._hp = currentHealth;
+            _session.Data._hp.Value = currentHealth;
         }
 
         protected override void Update()
@@ -183,15 +199,6 @@ namespace Components.Creatures.Hero
         {
             _interactionCheck.Check();           
         }
-
-        public void Heal()
-        {
-            if (_session.Data.Inventory.Count("Heal") > 0)
-            {
-                _session.Data.Inventory.Remove("Heal",1);
-                _action?.Invoke();
-            }
-        }
         
         public override void Attack()
         {
@@ -207,7 +214,10 @@ namespace Components.Creatures.Hero
         {
             if (_burstThrow)
             {
-                var throwsCount = Mathf.Min(_burstParticles, _session.Data.Inventory.Count("Sword") - 1);
+                var throwableCount = _session.Data.Inventory.Count(SelectedId);
+                var possibleCount = SelectedId == SwordId ? throwableCount - 1 : throwableCount;
+                
+                var throwsCount = Mathf.Min(_burstParticles, possibleCount);
                 StartCoroutine(DoBurst(throwsCount));
             }
             else
@@ -226,13 +236,17 @@ namespace Components.Creatures.Hero
                 yield return new WaitForSeconds(_burstDelay);
             }
         }
-
-
+        
         private void ThrowAndRemoveFromInventory()
         {
             Sounds.Play("Range");
-            _particles.Spawn("Throw");
-            _session.Data.Inventory.Remove("Sword",1);
+            
+           var throwableId = _session.QuickInventory.SelectedItem._id;
+           var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
+           _throwSpawner.SetPrefab(throwableDef.Projectile);
+           _throwSpawner.Spawn();
+           
+            _session.Data.Inventory.Remove(throwableId, 1);
         }
         
         public void StartBurst()
@@ -242,8 +256,8 @@ namespace Components.Creatures.Hero
 
         public void PerformBurst()
         {
-            var numSwords = _session.Data.Inventory.Count("Sword");
-            if (!_throwCoolDown.IsReady ||  numSwords <= 1) return;
+            
+            if (!_throwCoolDown.IsReady || !CanThrow) return;
 
             if (_burstCooldown.IsReady) _burstThrow = true;
             
@@ -251,17 +265,16 @@ namespace Components.Creatures.Hero
             _throwCoolDown.Reset();
         }
         
-        public void AddSwords()
-        {
-            var numSwords = _session.Data.Inventory.Count("Sword");
-            numSwords++;
-        }
+          public void AddSwords()
+          {
+              _session.Data.Inventory.Add("Sword", 1);
+          }
 
-        public void ArmHero()
-        {
-            UpdateHeroWeapon();
-            Animator.runtimeAnimatorController = _armed;
-            AddSwords();
+         public void ArmHero()
+         {
+             UpdateHeroWeapon();
+             Animator.runtimeAnimatorController = _armed;
+             AddSwords();
         }        
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -280,17 +293,10 @@ namespace Components.Creatures.Hero
         {
             Animator.runtimeAnimatorController = _session.Data.Inventory.Count("Sword") > 0 ? _armed : _disarmed;
         }
-
-        public void OpenPauseMenu()
+        
+        public void NextItem()
         {
-            var window = Resources.Load<GameObject>("UI/PauseMenuWindow");
-            var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
+            _session.QuickInventory.SetNextItem();
         }
     }
 }
-  
-
-
-
-

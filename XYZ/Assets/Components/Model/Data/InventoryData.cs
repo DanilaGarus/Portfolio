@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Components.Model.Definitions;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace Components.Model.Data
             if (itemDef.IsVoid) return;
 
             var isFull = _inventory.Count >= DefsFacade.I.PlayerDef.InventorySize;
-            if (itemDef.CanStack)
+            if (itemDef.HasTag(ItemTag.Stackable))
             { 
                 AddToStack(id, value);
             }
@@ -33,6 +34,20 @@ namespace Components.Model.Data
             OnChange?.Invoke(id,Count(id));
         }
 
+        public InventoryItemData[] GetAll(params ItemTag[] tags)
+        {
+            var retValue = new List<InventoryItemData>();
+            foreach (var item in _inventory)
+            {
+                var itemDef = DefsFacade.I.Items.Get(item._id);
+                var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
+                if(isAllRequirementsMet)
+                    retValue.Add(item);
+            }
+            
+            return retValue.ToArray();
+        }
+        
         private void AddToStack(string id, int value)
         {
             var isFull = _inventory.Count >= DefsFacade.I.PlayerDef.InventorySize;
@@ -63,7 +78,7 @@ namespace Components.Model.Data
             var itemDef =  DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return;
 
-            if (itemDef.CanStack)
+            if (itemDef.HasTag(ItemTag.Stackable))
             { 
                 RemoveFromStack(id, value);
             }
