@@ -12,12 +12,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: f8f3fd1188d6ba64c89bc4cf4f02848d, type: 3}
     - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
       propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 7365485841774763280}
     - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 2683894039697018887}
+    - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
       propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: set_isKinematic
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: UnityEngine.Rigidbody2D, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978096895179089029, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7425463035131820576, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
       propertyPath: m_RootOrder
@@ -63,6 +95,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7425463035131820577, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7425463035131820586, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
       propertyPath: m_Name
       value: Silver Coin Particle
@@ -70,6 +106,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3324117059637840399, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+--- !u!50 &2683894039697018887 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: -3606673204179339785, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}
+  m_PrefabInstance: {fileID: 7551866683297998320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7365485841774763280 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -8143940901803984672, guid: 75d1dd76dc5963d42b8d1bf6846f1eaf, type: 3}

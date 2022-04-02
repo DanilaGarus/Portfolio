@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Components.Model;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,11 +16,15 @@ namespace Components.Health
         [SerializeField] private UnityEvent _onCut;
         [SerializeField] public HealthChangeEvent _onChange;
         private Coroutine _routine;
-        
-       private int dmg;
 
-       public int Health => _health;
-       
+        private int periodicDmg;
+
+       public int Health
+       {
+           get => _health;
+           set => _health = value;
+       }
+
        public void ApplyDamage(int damageValue)
         {
             _health -= damageValue;
@@ -63,16 +68,16 @@ namespace Components.Health
 
         public IEnumerator OnPoisionDamage()
         {
-            dmg = 0;
+            periodicDmg = 0;
 
-            while (dmg < 4)
+            while (periodicDmg < 4)
             {
                 yield return new WaitForSecondsRealtime(2);
                 
                 _health -= 1;
                 _onChange?.Invoke(_health);
                 _onPoisionDamageTake.Invoke();
-                dmg++;
+                periodicDmg++;
                 
                 if (_health <= 0)
                 {

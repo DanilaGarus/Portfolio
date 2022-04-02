@@ -65,7 +65,7 @@ namespace Components.Creatures.Hero
 
             if (context.canceled)
             {
-                _hero.PerformBurst();
+                _hero.UseInventoryItems();
             }
         }
     }

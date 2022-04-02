@@ -35,7 +35,6 @@ namespace Components.UI.MainMenu
             SceneManager.LoadScene("MainMenu");
             var session = FindObjectOfType<GameSession>();
             Destroy(session.gameObject);
-            
         }
         
         private void OnDestroy()

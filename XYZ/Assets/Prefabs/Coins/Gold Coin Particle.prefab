@@ -65,6 +65,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1809304682232960814}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_isKinematic
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1001 &1511868724793234327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,6 +127,10 @@ PrefabInstance:
     - target: {fileID: 7425463035131820576, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425463035131820577, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7425463035131820586, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
       propertyPath: m_Name
@@ -168,6 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97bab6762fa4ae6840c3cd771589fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1809304682232960814 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: -8223346841448577863, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}
+  m_PrefabInstance: {fileID: 1511868724793234327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2955513586586645020 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4467337093416526219, guid: 3923e2664ec318b4a9cbf050b1aa5867, type: 3}

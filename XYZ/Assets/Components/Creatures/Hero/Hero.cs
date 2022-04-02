@@ -10,6 +10,8 @@ using Components.Model;
 using Components.Model.Data;
 using Components.Model.Data.Properties;
 using Components.Model.Definitions;
+using Components.Model.Definitions.Repositories;
+using Components.Model.Definitions.Repositories.Item;
 using Components.UI.MainMenu;
 using Components.Utils;
 using Components.World_Scripts;
@@ -29,7 +31,7 @@ namespace Components.Creatures.Hero
         [SerializeField] private Vector3 _groundCheckPositionDelta;
         [SerializeField] private float _groundCheckRadius;
         private int _swordCount => _session.Data.Inventory.Count(SwordId);
-
+        
         [Header("Burst Throw")] [SerializeField]
         private Cooldown _burstCooldown;
         [SerializeField] private int _burstParticles;
@@ -39,6 +41,8 @@ namespace Components.Creatures.Hero
         [Space] [Header("Other")] 
         [SerializeField] private Cooldown _throwCoolDown;
 
+        [SerializeField] private HealthComponent _healthComponent;
+        
         [SerializeField] private Cooldown _attackCoolDown;
         
         [SerializeField] private float _interactionRadius;        
@@ -58,13 +62,11 @@ namespace Components.Creatures.Hero
 
         private const string SwordId = "Sword";
         
+        
         protected static readonly int ThrowKey = Animator.StringToHash("Throw");
         private readonly Collider2D[] _interactionResult = new Collider2D[1];        
         private bool _allowDoubleJump;
 
-        [Space] [Header("Heal Event")]
-        [SerializeField] private UnityEvent _action;
-        
         ParticleSystem ps;
 
         private List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
@@ -254,9 +256,66 @@ namespace Components.Creatures.Hero
             _burstCooldown.Reset();
         }
 
-        public void PerformBurst()
+        public void UseInventoryItems()
         {
+            if (IsSelectedItem(ItemTag.Throwable))
+            {
+                PerformBurst();
+            }
+            else if(IsSelectedItem(ItemTag.Potion))
+            {
+                UsePotion();
+            }
+        }
+
+        private void UsePotion()
+        {
+            var potion = DefsFacade.I.PotionRep.Get(SelectedId);
+
+            switch (potion.Effect)
+            {
+                case Effect.AddHp:
+                    
+                    var maxHp = DefsFacade.I.PlayerDef.MaxHealth;
+                    
+                    _session.Data._hp.Value += (int) potion.Value;
+
+                    if (_session.Data._hp.Value > maxHp)
+                    {
+                        _session.Data._hp.Value = maxHp;
+                    }
+
+                    _healthComponent.Health = _session.Data._hp.Value;
+                    break;
+                case Effect.SpeedUp:
+                    
+                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
+                    _speedUpCooldown.Reset();
+                    break;
+            }
+
+            _session.Data.Inventory.Remove(potion.Id, 1);
+        }
+
+        private readonly Cooldown _speedUpCooldown = new Cooldown();
+        private float _additionalSpeed;
+
+        protected override float CalculateSpeed()
+        {
+            if (_speedUpCooldown.IsReady)
+                _additionalSpeed = 0f;
             
+            return base.CalculateSpeed() + _additionalSpeed;
+        }
+
+        private bool IsSelectedItem(ItemTag tag)
+        {
+            return _session.QuickInventory.SelectedDef.HasTag(tag);
+        }
+
+        private void PerformBurst()
+        {
             if (!_throwCoolDown.IsReady || !CanThrow) return;
 
             if (_burstCooldown.IsReady) _burstThrow = true;
@@ -264,8 +323,8 @@ namespace Components.Creatures.Hero
             Animator.SetTrigger(ThrowKey);  
             _throwCoolDown.Reset();
         }
-        
-          public void AddSwords()
+
+        public void AddSwords()
           {
               _session.Data.Inventory.Add("Sword", 1);
           }

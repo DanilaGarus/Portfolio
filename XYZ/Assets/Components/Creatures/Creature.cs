@@ -53,7 +53,7 @@ namespace Assets.Creatures
 
         protected virtual void FixedUpdate()
         {
-            var xVelocity = Direction.x * _speed;
+            var xVelocity = CalculateXVelocity(); 
             var yVelocity = CalculateYVelocity();
 
             Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
@@ -63,6 +63,16 @@ namespace Assets.Creatures
             Animator.SetBool(IsGround, IsGrounded);
             
             UpdateSpriteDirection(Direction);
+        }
+
+        protected virtual float CalculateXVelocity()
+        {
+          return  Direction.x * CalculateSpeed();
+        }
+
+        protected virtual float CalculateSpeed()
+        {
+            return _speed;
         }
 
         protected virtual float CalculateYVelocity()

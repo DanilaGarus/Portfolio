@@ -90,6 +90,11 @@ namespace Components.Creatures.Mobs
             _creature.SetDirection(Vector2.zero);
             _particles.Spawn("Miss");
             yield return new WaitForSeconds(_missHeroCooldown);
+            if (_isDead)
+            {
+                yield break;
+            }
+            
             StartState(_patrol.DoPatrol());
         }
 

@@ -17,11 +17,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: a489f360bb8fa9d4eb2c35efa9f50cee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/New Year.unity
     guid: e6df69895f0d3a448870de2dce30c8df
   - enabled: 1
     path: Assets/Scenes/HUD.unity
     guid: 64c0a7abeeb8b2f4fa2b61404cb61850
+  - enabled: 1
+    path: Assets/Scenes/level3.unity
+    guid: 1cf130843a47dde4d95855f00122503d
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: fa1f309cf52a867489cad8c696f1578a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4d63bd9fecfd07a41b3c250bcf869ed0, type: 2}

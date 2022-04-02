@@ -32,7 +32,4 @@ namespace Components.ColliderBased
     {
 
     }
-
-
-
 }

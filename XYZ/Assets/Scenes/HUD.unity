@@ -1008,7 +1008,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 1712468075}
-  _canvas: {fileID: 1550528145}
 --- !u!1 &2055251421
 GameObject:
   m_ObjectHideFlags: 0

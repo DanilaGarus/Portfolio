@@ -1,6 +1,7 @@
 ﻿using Components.Model;
 using Components.Model.Data;
 using Components.Model.Definitions;
+using Components.Model.Definitions.Repositories.Item;
 using Components.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;

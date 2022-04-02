@@ -97,9 +97,9 @@ namespace Components.Creatures.Mobs
             return direction.normalized;
         }
         
-    private void StartState(IEnumerator coroutine)
-        {
-            _pinkStar.SetDir(Vector2.zero);
+        private void StartState(IEnumerator coroutine)
+        { 
+            _pinkStar.SetDir(Vector2.zero); 
             if (_current != null) StopCoroutine(_current);
             
             _current = StartCoroutine(coroutine);    

@@ -1,8 +1,8 @@
 ﻿using System;
 using Components.Model.Data.Properties;
 using Components.Model.Definitions;
+using Components.Model.Definitions.Repositories.Item;
 using Components.Utils.Disposables;
-using UnityEditor.Experimental;
 using UnityEngine;
 
 namespace Components.Model.Data
@@ -17,8 +17,19 @@ namespace Components.Model.Data
 
         public event Action OnChanged;
 
-        public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
+        public InventoryItemData SelectedItem
+        {
+            get
+            {
+                if (Inventory.Length > 0 && Inventory.Length > SelectedIndex.Value)
+                    return Inventory[SelectedIndex.Value];
+                
+                return null;
+            }
+        }
 
+        public ItemDefenitions SelectedDef => DefsFacade.I.Items.Get(SelectedItem?._id);
+        
         public QuickInventoryModel(PlayerData data)
         {
             _playerData = data;
